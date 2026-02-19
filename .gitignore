@@ -1,0 +1,60 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Build output
+dist/
+build/
+.parcel-cache/
+.next/
+.vercel/
+.cache/
+coverage/
+
+# Vite cache
+.vite/
+
+# Misc
+.env
+.env.*
+!.env.example
+.eslintcache
+.sass-cache/
+.nyc_output/
+.turbo/
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Windows image file caches
+ehthumbs.db
+Thumbs.db
+
+# VSCode settings
+.history/
+.vscode/
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Do NOT ignore node_modules as per user request
+node_modules/
