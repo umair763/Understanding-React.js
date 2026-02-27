@@ -1,16 +1,83 @@
-# React + Vite
+# React Redux Toolkit Bank (Learning Template)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple React app using Redux Toolkit for state management, designed as a learning template for beginners. It demonstrates how to structure a modern React + Redux project, manage state, and perform basic operations like deposits, withdrawals, and loan requests.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Customer Management:** Create a customer with a name and national ID.
+- **Account Operations:** Deposit (with currency conversion), withdraw, request a loan, and pay back a loan.
+- **Balance Display:** Shows the current account balance.
+- **Redux Toolkit:** Uses `createSlice`, `createAsyncThunk`, and `configureStore` for state management.
+- **Tailwind CSS:** For simple, responsive styling.
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+Learning React Redux RTK/
+├── public/
+├── src/
+│   ├── App.jsx           # Main app component
+│   ├── App.css
+│   ├── index.css        # Tailwind import
+│   ├── main.jsx         # Entry point, sets up Redux Provider
+│   ├── store/
+│   │   └── store.js     # Redux store configuration
+│   ├── features/
+│   │   ├── accounts/
+│   │   │   ├── account.slice.js      # Account state & reducers
+│   │   │   ├── account.operations.jsx# UI for account actions
+│   │   │   ├── balance.display.jsx   # Balance display component
+│   │   │   └── index.js
+│   │   ├── customers/
+│   │   │   ├── customer.slice.js     # Customer state & reducers
+│   │   │   ├── create.customer.jsx   # UI for creating customer
+│   │   │   ├── customer.jsx          # Customer welcome component
+│   │   │   └── index.js
+│   └── assets/
+├── index.html
+├── package.json
+├── vite.config.js
+├── eslint.config.js
+└── README.md
+```
 
-## Expanding the ESLint configuration
+## How Redux Toolkit Is Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Slices:**
+  - `account.slice.js` manages account state (balance, loan, currency conversion).
+  - `customer.slice.js` manages customer info (name, ID, creation date).
+- **Async Thunks:**
+  - `convertCurrency` fetches currency conversion rates for deposits.
+- **Store:**
+  - `store.js` combines slices and configures the Redux store.
+- **Components:**
+  - Components use `useSelector` and `useDispatch` to interact with Redux state and actions.
+
+## How It Works
+
+1. On first load, the app prompts to create a customer.
+2. Once a customer is created, account operations become available:
+   - Deposit money (with optional currency conversion)
+   - Withdraw money
+   - Request a loan (only one loan at a time)
+   - Pay back loan
+3. The balance is always visible in the header.
+
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Learning Path
+
+- Explore how Redux Toolkit simplifies state management.
+- See how async actions (thunks) are handled for API calls.
+- Understand component interaction with global state.
+
